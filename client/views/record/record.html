@@ -1,0 +1,17 @@
+<template name="record">
+	<li>
+		<div class="wrapper">
+			<strong>{{name}}</strong>
+			<span class="amount">&euro;{{amount}}</span>
+			{{>labels}}
+		</div>
+		
+		<div class="info-window">
+			<input type="text" class="record-name" value="{{name}}"/>
+			<div class="right price-edit">
+				<span>&euro;</span>
+				<input type="text" class="record-price" value="{{amount}}"/>
+			</div>
+		</div>
+	</li>
+</template>

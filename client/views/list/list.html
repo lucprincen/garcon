@@ -1,0 +1,14 @@
+<template name="list">
+	<div class="list">
+		<h2>{{ title }}</h2>
+		<ul class="records" id="{{ title }}">
+			{{#each records}}
+				{{> record}}
+			{{/each}}
+		</ul>
+		<div class="list-bottom">
+			<span class="total">Totaal: €{{calcTotal}}</span>
+			{{> addRecord }}
+		</div>
+	</div>
+</template>

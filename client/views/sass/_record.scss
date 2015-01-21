@@ -1,0 +1,48 @@
+.record{
+	@include box-sizing(border-box);
+	padding:10px 12px 8px 12px;
+	margin-bottom:5px;
+	width:100%;
+	display:block;
+	background:#fff;
+	border-radius:$border-radius;
+	border:1px solid rgba(0,0,0,.2);
+	box-shadow:0 2px 2px rgba(0,0,0,.2);
+	cursor:pointer;
+
+	&:hover{
+		background:$lightGreen;
+	}
+
+	&.ui-sortable-helper{
+		@include transform( rotate(-3deg) );
+		box-shadow:0 0 10px rgba(0,0,0,.6);
+	}
+
+	strong{
+		font-size: rem( 14px );
+		color:#aaa;
+		vertical-align:middle;
+		font-weight:normal;
+		font-family:$serif;
+		font-style:italic;
+	}
+
+	.amount{
+		float:right;
+		font-size: rem( 16px );
+	}
+
+	.info-window{
+		@extend .popup;
+		width:400px;
+		height:350px;
+		margin-left:-200px;
+	}
+
+	&.active{
+		.info-window{
+			display:block;
+		}
+	}
+}
