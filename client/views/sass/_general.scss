@@ -16,13 +16,13 @@ section{
 	background:$darkGreen;
 	position:fixed;
 	top:0;
+	z-index:50;
 }
 
 header{
-	@include span-columns( 8 );
-	@include shift( 2 );
 	text-align:center;
-	padding:10px 0;
+	height:75px;
+	padding:0;
 
 	h1{
 		font-family:$serif;
@@ -39,14 +39,19 @@ header{
 
 		a{
 			color:#fff;
-			border:2px solid #fff;
 			border-radius:$border-radius;
-			padding:10px 20px;
+			padding:10px 10px;
 			text-decoration:none;
 			margin-right:10px;
+			font-weight:100;
+
+			i{
+				padding-right:10px;
+			}
+
 			&:hover{
-				color:$black;
-				border-color:$black;
+				background:rgba(0,0,0,.4);
+				color:#fff;
 			}
 		}
 	}
@@ -56,7 +61,9 @@ header{
 .board{
 	@include box-sizing( border-box );
 	height:100%;
-	width:4150px;
+	width:4550px;
 	margin:120px 50px 0 0;
 	padding:0 50px;
 }
+
+.right{float:right;}

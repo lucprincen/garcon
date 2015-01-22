@@ -1,19 +1,23 @@
 <head>
-	<title>Chef du Web accounts</title>
+	<title>Garcon!</title>
+	<script src="//use.typekit.net/ykb2lnr.js"></script>
+	<script>try{Typekit.load();}catch(e){}</script>
 </head>
 <body>
-	
 	<section>
 		<header>
 			<h1>Garçon</h1>
 			<nav>
-				<a href="#invoices">Omzet</a>
-				<a href="#leads">Leads</a>
-				<a href="#planning">Planning</a>
+				<a href="{{pathFor 'projects'}}"><i class="icon-rocket"></i> Projecten</a>
+				<a href="{{pathFor 'board'}}"><i class="icon-graph"></i> Omzet</a>
+				<a href="#leads"><i class="icon-star"></i> Leads</a>
+				<a href="{{pathFor 'planning'}}"><i class="icon-directions"></i> Planning</a>
 			</nav>
 		</header>
 	</section>
 
-	{{> board}}
-	<div id="overlay"></div>
+	{{yield}}
+
+	{{> footer}}
+
 </body>

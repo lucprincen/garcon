@@ -1,3 +1,5 @@
+Meteor.subscribe('records');
+
 Template.list.helpers({
 
 	records: function(){

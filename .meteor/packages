@@ -5,10 +5,11 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
 insecure
 bstocks:bourbon
 bstocks:neat
 coffeescript
 fourseven:scss
-jquery-ui
+iron:router
+mrt:jquery-ui
+mizzao:jquery-ui

@@ -1,3 +1,5 @@
+Meteor.subscribe('lists');
+
 Template.board.helpers({
 
 	lists: function(){

@@ -4,10 +4,12 @@
  */
 Template.record.events({
 
-	"click .wrapper" : function( event ){
+	"click .ui-sortable-handle" : function( event ){
 
-		$('#overlay').toggleClass('active');
-		$( event.target ).parent().toggleClass( 'active' );
+		$('#overlay').addClass('active');
+		$( event.target ).addClass( 'active active-popup' );
+
+		return false;
 
 	}
 

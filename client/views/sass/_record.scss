@@ -11,12 +11,16 @@
 	cursor:pointer;
 
 	&:hover{
-		background:$lightGreen;
+		background:#eee;
 	}
 
 	&.ui-sortable-helper{
 		@include transform( rotate(-3deg) );
 		box-shadow:0 0 10px rgba(0,0,0,.6);
+	}
+
+	.wrapper{
+		pointer-events: none;
 	}
 
 	strong{
@@ -38,6 +42,30 @@
 		width:400px;
 		height:350px;
 		margin-left:-200px;
+
+		.record-name{
+			@include borderbox();
+			font-size: rem( 20px );
+			width:100%;
+			padding:10px;
+			border:1px solid #ddd;
+		}
+
+		.price-edit{
+			background:#eee;
+			padding:10px;
+			display:block;
+			font-size: rem( 18px );
+			text-align:right;
+
+			input{
+				width:110px;
+				padding:10px;
+				font-size: rem( 18px );
+				border:1px solid #bbb;
+			}
+		}
+
 	}
 
 	&.active{
