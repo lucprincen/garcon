@@ -1,0 +1,66 @@
+.chart{
+	margin-top:100px;
+	width:9100px;
+	border-top:1px solid #ccc;
+}
+
+.user-row{
+	$bgCol: #f8f8f8;
+	$lineCol: #eee;
+	width:4800px;
+	clear:both;
+	position:relative;
+	display:block;
+	background:$bgCol;
+	border-bottom:2px solid $lineCol;
+
+	.user-details{
+		@include box-sizing( border-box );
+		padding:30px 0;
+		text-align:center;
+		width:150px;
+		height:150px;
+		background:rgba(255,255,255,.5);
+		border-right:1px solid #ccc;
+		position:absolute;
+		z-index:300;
+	}
+
+	.tasks-row{
+		@include linear-gradient(90deg, $bgCol 0%, $bgCol 98%, $lineCol 98%, $lineCol 100%);
+		background-size:150px 150px;
+		background-repeat:repeat-x;
+		display:block;
+		position:relative;
+		min-height:74px;
+		width:4650px;
+		margin-left:150px;
+		margin-bottom:0;
+		.task{
+			@include box-sizing( border-box );
+			min-width:150px;
+			height:74px;
+			background:$red;
+			padding:10px;
+			display:block;
+			border-bottom:4px solid rgba(0,0,0,.4);
+
+			strong{
+				color:#fff;
+				display:block;
+				width:100%;
+				text-shadow:1px 1px 1px rgba(0,0,0,.4);
+				font-weight:600;
+			}
+
+			span{
+				color:rgba(0,0,0,.4);
+			}
+
+			&.ui-sortable-helper{
+				-webkit-transform:translate(0,0) !important;
+				transform:translate(0,0) !important;
+			}
+		}
+	}
+}

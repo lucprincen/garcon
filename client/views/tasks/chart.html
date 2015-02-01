@@ -1,0 +1,25 @@
+<template name="chart">
+
+	<div class="chart">
+		
+		<div class="date-wrapper">
+		{{#each dates }}
+			<span class="date">{{ name }}</span>
+		{{/each}}
+		</div>
+
+	{{#each users }}
+		<div class="user-row">
+			<div class="user-details">
+				{{name}}
+			</div>
+			<div class="tasks-row">
+				{{#each getTasks }}
+					{{> task }}
+				{{/each}}
+			</div>
+		</div>
+
+	{{/each }}
+	</div>
+</template>

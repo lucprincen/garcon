@@ -13,3 +13,4 @@ fourseven:scss
 iron:router
 mrt:jquery-ui
 mizzao:jquery-ui
+momentjs:moment
