@@ -10,7 +10,6 @@ Template.body.events({
 				$('.active-popup').removeClass( 'active-popup' );
 			}
 		}
-
 	}
 
 });

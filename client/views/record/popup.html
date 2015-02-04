@@ -1,9 +1,18 @@
-<template name="popup">
-	<div class="close right" id="close"><i class="icon-close"></i></div>
+<template name="popupRecord">
 	<input type="text" class="record-name" value="{{name}}"/>
 	<div class="price-edit">
 		Gefactureerd bedrag
 		<span>&euro;</span>
 		<input type="text" class="record-price" value="{{amount}}"/>
 	</div>
+	<div class="tags">
+		{{#each tags }}
+			<label>
+				<input type="checkbox" value="{{ _id }}" checked={{isChecked}} />
+				<i>{{ name }}</i>
+			</label>
+		{{/each }}
+	</div>
+	<span class="button button-alt button-danger">Verwijder</span>
+	<span class="button save-popup">Opslaan</span>
 </template>

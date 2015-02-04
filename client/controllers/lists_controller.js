@@ -52,6 +52,22 @@ Template.list.rendered = function() {
 
 }
 
+
+Template.popupRecord.created = function(){
+
+	var _p = Tags.find();
+	console.log( _p );
+	
+	for( var i = 0; _p.length > i; i++ ){
+
+		_p[i].isChecked = false;
+
+	}
+
+	this.tags = _p;
+};
+
+
 /**
  * Events:
  */

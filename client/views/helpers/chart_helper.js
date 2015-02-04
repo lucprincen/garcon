@@ -1,16 +1,24 @@
-Meteor.subscribe( 'tasksOfProject' );
+Meteor.subscribe( 'tasks' );
 
 Template.chart.helpers({
 
 	dates: function(){
 
 		var dates = [];
-		var d = new Date();
 	
 		for( var i = 0; i < 30; i++ ){
+			
+			var now = moment();
+			now.add( i, 'days' );
+			
+			var _obj = {
 
-			var date = d.setDate( d.getDate() + i );
-			//dates.push( { name: date.getDay()+' - '+ ( date.getMonth() + 1 ) } );
+				name: now.format( 'D MMM' ),
+				day: now.format( 'ddd' )
+
+			}
+			
+			dates.push( _obj );
 
 		}
 		
@@ -21,14 +29,6 @@ Template.chart.helpers({
 	getTasks: function(){
 
 		var tasks = Tasks.find();
-
-		//for( var i = 0; i < tasks.length; i++ ){
-
-
-		//	tasks[i].formattedStart = moment( tasks[i].start ).format('ddd, hA');
-
-		//}
-
 		return tasks;
 
 	},
@@ -38,4 +38,4 @@ Template.chart.helpers({
 		return [ { name: 'Luc' }, { name: 'Daan' }, { name: 'Remy' }, { name: 'Pascal'}, {name: 'Mark'} ];
 	}
 
-})
+});

@@ -1,0 +1,25 @@
+.add-project-wrapper{
+	background:rgba(255,255,255,.3);
+	padding:30px 0;
+	width:100%;
+	margin:0 0 50px 0;
+
+	.add-project{
+		
+	}
+}
+
+.projects{
+	@include outer-container;
+
+
+	.project{
+		@include span-columns( 3 );
+		@include box-sizing( border-box );
+		background:#f8f8f8;
+		padding:30px;
+		margin-bottom:30px;
+		box-shadow:0 0 10px rgba(0,0,0,.2);
+	}
+
+}

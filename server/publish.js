@@ -24,17 +24,8 @@ Meteor.publish('tasks', function() {
 
 });
 
+Meteor.publish('tags', function(){
 
-Meteor.publish('tasksOfProject', function() {
-  // first, get the top 30 posts
-  var taskCursor = Tasks.find({});
+	return Tags.find();
 
-  // then extract those posts' userIds
-  var projectIds = taskCursor.map(function(p) { return p.project_id });
-
-  // then return an array containing both the posts, and their corresponding comments
-  return [
-    taskCursor,
-    Meteor.projects.find({_id: {$in: projectIds}})
-  ];
-});
+})

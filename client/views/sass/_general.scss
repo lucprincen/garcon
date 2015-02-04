@@ -4,7 +4,7 @@ html, body{
 }
 
 body{
-	background:$green;
+	background:$beige;
 	font-size: rem(18);
 	font-family:$sans;
 	line-height:140%;
@@ -13,10 +13,10 @@ body{
 
 section{
 	width:100%;
-	background:$darkGreen;
+	background:$blue;
 	position:fixed;
 	top:0;
-	z-index:50;
+	z-index:999;
 }
 
 header{
@@ -38,7 +38,8 @@ header{
 		margin:25px 20px 0 0;
 
 		a{
-			color:#fff;
+			background:rgba(255,255,255,.4);
+			color:$black;
 			border-radius:$border-radius;
 			padding:10px 10px;
 			text-decoration:none;
@@ -50,8 +51,7 @@ header{
 			}
 
 			&:hover{
-				background:rgba(0,0,0,.4);
-				color:#fff;
+				background:#fff;
 			}
 		}
 	}

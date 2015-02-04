@@ -29,6 +29,22 @@ Meteor.startup(function() {
     }
 
 
+    if( Tags.find({}).count() === 0 ){
+
+      var tags = [ 'Betaald', 'Openstaand', 'Waarschijnlijk', 'Hosting' ];
+
+      for( var i = 0; i < tags.length; i++ ){
+
+        Tags.insert({
+          name: tags[ i ],
+          color: Meteor.getRandomColor()
+        })
+
+      }
+
+    }
+
+
     if( Tasks.find({}).count() === 0 ){
 
       var tasks = [ 'webdesign', 'webdevelopment' ];

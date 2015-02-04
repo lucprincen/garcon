@@ -1,0 +1,12 @@
+<template name="popupTask">
+	<input type="text" class="task-name" value="{{name}}"/>
+	<span class="project">
+		<label>Project</label>
+		<select class="task-project">
+			{{#each possibleProjects }}
+				<option value="{{ _id }}">{{ name }}</option>
+			{{/each}}
+		</select>
+	</span>
+	<span class="button save-popup">Opslaan</span>
+</template>

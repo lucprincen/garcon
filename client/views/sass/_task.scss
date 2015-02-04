@@ -1,0 +1,104 @@
+.task{
+	@include box-sizing( border-box );
+	min-width:150px;
+	height:74px;
+	background:$red;
+	padding:10px;
+	display:block;
+	border-bottom:4px solid rgba(0,0,0,.4);
+	position:relative;
+	z-index:20;
+
+	strong{
+		color:#fff;
+		display:block;
+		width:100%;
+		font-size:rem( 18px );
+		text-shadow:1px 1px 1px rgba(0,0,0,.4);
+		font-weight:600;
+		text-transform:capitalize;
+	}
+
+	span{
+		font-size: rem( 14px ); 
+		color:rgba(0,0,0,.8);
+		font-family:$serif;
+		font-style:italic;
+	}
+
+	.duration{
+		font-family:$sans;
+		font-size: rem( 13px );
+		background:rgba(255,255,255,.7);
+		color:$black;
+		float:right;
+		margin:-35px -10px 0 0;
+		padding:0 9px;
+	}
+
+	&.ui-sortable-helper{
+		@include transform( translate( 0, 0 ) !important );
+		box-shadow:3px 3px 10px rgba(0,0,0,.4);
+	}
+	
+
+	.wrapper{
+		pointer-events: none;
+	}
+
+	.info-window{
+		@extend .popup;
+		width:400px;
+		height:250px;
+		top:30px;
+		left:30px;
+		position:relative;
+		box-shadow:none;
+		-webkit-filter: drop-shadow( 0 0 4px rgba( 0,0,0,.3 ) );
+
+		&:before{
+			content:'';
+			display:block;
+			border:10px solid #fff;
+			border-color:transparent transparent #fff transparent;
+			position:absolute;
+			top:-20px;
+			left:20%;
+		}
+
+		.task-name{
+			@include borderbox();
+			font-size: rem( 22px );
+			width:100%;
+			padding:10px;
+			border:1px solid #ddd;
+
+		}
+
+		.project{
+			padding-top:15px;
+			display:block;
+			width:100%;
+
+			select{
+				@include borderbox();
+				width:100%;
+				font-size: rem( 20px );
+				padding:10px;
+			}
+		}
+
+		.button{
+			font-family:$sans;
+			font-style:normal;
+		}
+	}
+
+	&.active{
+		z-index:999 !important;
+		.info-window{
+			display:block;
+		}
+	}
+
+}

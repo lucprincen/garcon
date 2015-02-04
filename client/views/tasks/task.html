@@ -1,5 +1,14 @@
 <template name="task">
 	<div class="task" style="{{ calcStyle }}">
-		<strong>{{ name }}</strong>
+
+		<div class="wrapper">
+			<strong>{{ name }}</strong>
+			<span>{{ projectName }}</span>
+			<span class="duration">{{ duration }}</span>
+		</div>
+
+		<div class="info-window">
+			{{> popupTask }}
+		</div>
 	</div>
 </template>

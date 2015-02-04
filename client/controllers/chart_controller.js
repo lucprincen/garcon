@@ -7,6 +7,7 @@ Template.chart.rendered = function() {
 	var taskHeight = 74;
 
 	setSortable( this );
+	setResize( this );
 
 	//make all the records sortable:
 	function setSortable( self ){
@@ -22,20 +23,21 @@ Template.chart.rendered = function() {
 			},
 			stop: function(e, ui){
 
-				var nPos = ui.position
-				var oPos = ui.originalPosition;
+				//vars:
 				var _days = 0;
 				var item = ui.item;
 				task = Blaze.getData( item.get(0) );
-
-					
+				
+				//set moment vars:					
 				var _start = moment( task.start );
 				var _end = moment( task.end );
 				var _now = moment();
 
-				_days = Math.floor( Math.floor( nPos.left ) / dayWidth );
+				//calculate the days:
+				_days = Math.floor( Math.floor( ui.position.left ) / dayWidth );
 				_days -= _start.diff( _now, 'days' );
 
+				//get the new starts and ends:
 				if( _days >= 0 ){
 					var newStart = moment( task.start ).add( _days, 'days' );
 					var newEnd = moment( task.end ).add( _days, 'days' );
@@ -44,54 +46,64 @@ Template.chart.rendered = function() {
 					newEnd = moment( task.end ).subtract( Math.abs( _days ), 'days' ); 
 				}
 
+				//update the task:
 				Tasks.update({ _id: task._id }, {$set: { start: newStart.toDate(), end: newEnd.toDate() } });
 
+				//update the transformproperty 'cause lag
 				var _left = _start.diff( _now, 'days' ) * dayWidth;
-
 				jQuery( item ).css({
-
 					"-webkit-transform":"translate("+_left+"px,0)",
 					"transform":"translate("+_left+"px,0)"
-
 				});
 
     	  	}
 		}).disableSelection();
 
-	/*	$( ".task" ).draggable({ 
-			grid: [ 150, 74 ],
-			connectWith: '.tasks-row',
-			stack: '.task',
-			start: function( e, ui ){
-				item = ui.item;
-				//task = Blaze.getData( item );
-				//firstStart = task.start;
-				//firstEnd = task.end;
-				//secondStart = firstStart;
-				//secondEnd = firstEnd;
-				console.log( item );
-			},
-			stop: function(e, ui){
-				//item = ui.item;
-				//task = Blaze.getData( item.get(0) );
-					
-
-			}
-		});*/
+	}
 
 
+	function setResize( self ){
+		
+		self.$('.task').resizable({
+      		grid: [ dayWidth, taskHeight ],
+      		resize: function(e, ui) {
+        		
+        		ui.size.height = ui.originalSize.height;
+        		var item = ui.element;
+    			var _days = Math.ceil( ui.size.width / dayWidth );
+    			var _string = 'dagen';
+
+    			if( _days === 1 )
+    				_string = 'dag';
+
+    			var dayString = _days+' '+_string;
+
+    			$( item ).find('.duration').html( dayString );
+
+    		},
+    		stop: function(e, ui){
+
+    			var diff = ui.size.width - ui.originalSize.width;
+    			var _days = diff / dayWidth;
+				var item = ui.element;
+				var task = Blaze.getData( item.get(0) );
+
+    			//get the new end
+				if( _days >= 0 ){
+					var newEnd = moment( task.end ).add( _days, 'days' );
+				}else{
+					newEnd = moment( task.end ).subtract( Math.abs( _days ), 'days' ); 
+				}
+
+				//update the task:
+				Tasks.update({ _id: task._id }, {$set: { end: newEnd.toDate() } });
+
+
+    		}
+    
+    	});
 
 	}
 
+
 };
-
-
-Meteor.getDayDifference = function( first, second ){
-
-	var oneDay = 24*60*60*1000;
-	var diffDays = Math.round( ( first.getTime() - second.getTime() )/( oneDay ));
-	diffDays += 1;
-
-	return diffDays;
-
-}

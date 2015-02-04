@@ -1,0 +1,16 @@
+<template name="projects">
+
+	<div class="add-project-wrapper">
+		<form class="add-project">
+			<h2>Project toevoegen</h2>
+			<input type="text" class="project-name" placeholder="Project naam"/>
+		</form>
+	</div>
+
+	<div class="projects">
+		{{#each projects }}
+			{{> project }}
+		{{/each }}
+	</div>
+
+</template>
