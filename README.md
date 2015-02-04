@@ -3,7 +3,7 @@
 Garcon is a Project Management system build on [Meteor](https://www.meteor.com/) with use of [Bourbon & Neat](http://bourbon.io/).
 
 * Source: [https://bitbucket.org/chefduweb/garcon](https://bitbucket.org/chefduweb/garcon)
-* Home Page: [http://www.chefduweb.nl/carte-blanche/](http://www.chefduweb.nl/garcon/)
+* Home Page: [http://www.chefduweb.nl/garcon/](http://www.chefduweb.nl/garcon/)
 * Twitter: [@LucP](https://twitter.com/LucP)
 
 ## Installation
